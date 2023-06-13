@@ -11,14 +11,14 @@ export class ProductService {
   private productModel: Model<ProductDocument>;
 
   async create(createProductDto: CreateProductDto): Promise<any> {
-    //try {
-    return await this.productModel.create(createProductDto);
-    // } catch (error) {
-    //   throw new HttpException(
-    //     'Something went wrong',
-    //     HttpStatus.INTERNAL_SERVER_ERROR,
-    //   );
-    // }
+    try {
+      return await this.productModel.create(createProductDto);
+    } catch (error) {
+      throw new HttpException(
+        'Something went wrong',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   async findAll(criteria: any): Promise<any> {
